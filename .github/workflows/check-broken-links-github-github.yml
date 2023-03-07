@@ -1,0 +1,12 @@
+name: Flujo de trabajo de ejemplo
+
+on: 
+  push:
+  
+jobs:
+  ejemplo_job:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Acción de ejemplo
+      run: echo "¡Hola, mundo!"
