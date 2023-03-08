@@ -1,12 +1,39 @@
-name: Flujo de trabajo de ejemplo
+name: Deploy to Azure via FTP
 
-on: 
+on:
   push:
-  
+    branches:
+      - main
+
 jobs:
-  ejemplo_job:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Acción de ejemplo
-      run: echo "¡Hola, mundo!"
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Python environment
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Deploy to Azure via FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: .
+        remote-dir: /site/wwwroot
+        exclude: |
+          .git
+          .github
+          .vscode
+          __pycache__
+          *.pyc
+          *.pyo
+          *.pyd
+          *.egg-info
