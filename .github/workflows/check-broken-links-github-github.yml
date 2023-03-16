@@ -12,10 +12,10 @@ jobs:
       with:
         node-version: 16
 
-    - name: npm install, build, and test
-      run: |
-        npm install
-        npm run build --if-present
+    #- name: npm install, build, and test
+    #  run: |
+    #    npm install
+    #    npm run build --if-present
 
     - name: SSH
       uses: ErenKrt/ssh-push@main
@@ -23,9 +23,9 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         private_key: ${{ secrets.PRIVATE_KEY }}
-        source: "dist/"
-        exclude: |
-          *.exe
+       # source: "dist/"
+       # exclude: |
+       #   *.exe
         scripts: |
            touch hola.txt
         #  cd /home/eren/test && unzip myZipname.zip && rm -r *.zip
