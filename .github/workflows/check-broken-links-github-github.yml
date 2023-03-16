@@ -27,6 +27,7 @@ jobs:
        # exclude: |
        #   *.exe
         scripts: |
+           pwd
            touch hola.txt
         #  cd /home/eren/test && unzip myZipname.zip && rm -r *.zip
         #  cat /home/eren/test/index.js
