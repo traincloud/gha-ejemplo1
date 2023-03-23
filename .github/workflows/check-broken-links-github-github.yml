@@ -32,7 +32,7 @@ jobs:
           ls
           pwd
           touch hola.txt
-          echo "Hola Bbchita" >> hola.txt
+          echo "Hola!!!" >> hola.txt
           git clone https://github.com/traincloud/gha-ejemplo1.git
           cd /home/bellicose/gha-ejemplo1 && git pull
           
