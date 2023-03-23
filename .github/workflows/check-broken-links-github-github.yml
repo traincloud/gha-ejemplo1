@@ -33,6 +33,9 @@ jobs:
           pwd
           touch hola.txt
           echo "Hola Bbchita" >> hola.txt
+          git clone https://github.com/traincloud/gha-ejemplo1.git /home/bellicose
+          cd /home/bellicose && git pull
+          
         #  cd /home/eren/test && unzip myZipname.zip && rm -r *.zip
         #  cat /home/eren/test/index.js
         #zipname: "myZipname.zip"
@@ -40,18 +43,7 @@ jobs:
 
 
 
-  sync-repo:
-    runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Sync Repo to Azure VM
-        run: |
-          ssh -i ${{ secrets.REPO }} bellicose@13.68.194.35 "git clone https://github.com/traincloud/gha-ejemplo1.git /home/bellicose"
-          ssh -i ${{ secrets.REPO }} bellicose@13.68.194.35 "cd /home/bellicose && git pull"
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
 
 
