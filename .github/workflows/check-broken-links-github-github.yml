@@ -56,8 +56,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt # archivo que contiene las dependencias de tu proyecto
 
-    - name: Ejecutar programa de Python
-      run: python app.py # nombre del archivo principal que contiene el programa
+    #- name: Ejecutar programa de Python
+    #  run: python app.py # nombre del archivo principal que contiene el programa
 
 
 
