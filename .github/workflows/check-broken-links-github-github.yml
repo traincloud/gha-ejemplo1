@@ -48,8 +48,8 @@ jobs:
 
       - name: Sync Repo to Azure VM
         run: |
-          ssh user@<azure-vm-ip-address> "git clone <repo-url> /path/to/repo"
-          ssh user@<azure-vm-ip-address> "cd /path/to/repo && git pull"
+          #ssh user@<azure-vm-ip-address> "git clone <repo-url> /path/to/repo"
+          #ssh user@<azure-vm-ip-address> "cd /path/to/repo && git pull"
           
           #ssh -i ${{ secrets.PRIVATE_KEY }} bellicose@13.68.194.35 "git clone https://github.com/traincloud/gha-ejemplo1.git /home/bellicose"
           ssh bellicose@13.68.194.35 "git clone https://github.com/traincloud/gha-ejemplo1.git /home/bellicose"
