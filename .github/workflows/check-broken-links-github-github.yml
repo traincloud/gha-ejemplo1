@@ -33,6 +33,7 @@ jobs:
           pwd
           touch hola.txt
           echo "Hola!!!" >> hola.txt
+          rm -rf gha-ejemplo1
           git clone https://github.com/traincloud/gha-ejemplo1.git
           cd /home/bellicose/gha-ejemplo1 && git pull
           
