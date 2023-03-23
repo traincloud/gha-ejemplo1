@@ -1,8 +1,7 @@
 on: [push]
 ############################
 
-env:
-  SERVER_SYNC_FOLDER: "/home/bellicose"
+
 jobs:
   deployment_job:
     runs-on: ubuntu-latest
@@ -38,3 +37,29 @@ jobs:
         #  cat /home/eren/test/index.js
         #zipname: "myZipname.zip"
         #outdir: "/home/eren/test"
+
+
+
+  sync-repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Sync Repo to Azure VM
+        run: |
+          ssh user@<azure-vm-ip-address> "git clone <repo-url> /path/to/repo"
+          ssh user@<azure-vm-ip-address> "cd /path/to/repo && git pull"
+          
+          #ssh -i ${{ secrets.PRIVATE_KEY }} bellicose@13.68.194.35 "git clone https://github.com/traincloud/gha-ejemplo1.git /home/bellicose"
+          ssh bellicose@13.68.194.35 "git clone https://github.com/traincloud/gha-ejemplo1.git /home/bellicose"
+          ssh bellicose@13.68.194.35 "cd /home/bellicose && git pull"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+
+
+
+
+
+
