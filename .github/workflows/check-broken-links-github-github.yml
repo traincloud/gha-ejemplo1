@@ -2,22 +2,32 @@ on: [push]
 ############################
 
 
+
 jobs:
-  deployment_job:
+  build:
     runs-on: ubuntu-latest
-    name: Deployment Job
+
+#jobs:
+#  deployment_job:
+#    runs-on: ubuntu-latest
+    name: Checkout del código
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
+#    - name: Set up Node.js
+#      uses: actions/setup-node@v3
+#      with:
+#        node-version: 16
 
     #- name: npm install, build, and test
     #  run: |
     #    npm install
     #    npm run build --if-present
+    
+    - name: Configuración de Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x' # versión de Python que deseas utilizar, por ejemplo: 3.8
 
     - name: SSH
       uses: ErenKrt/ssh-push@main
@@ -37,13 +47,17 @@ jobs:
           cd /home/bellicose/gha-ejemplo1 && git pull
           chmod 600 /home/bellicose/gha-ejemplo1/mycron
           crontab /home/bellicose/gha-ejemplo1/mycron
-          python app.py 
+        
 
 
 
+    - name: Instalar dependencias de Python
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt # archivo que contiene las dependencias de tu proyecto
 
-
-
+    - name: Ejecutar programa de Python
+      run: python main.py # nombre del archivo principal que contiene el programa
 
 
 
