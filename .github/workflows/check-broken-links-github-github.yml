@@ -37,11 +37,6 @@ jobs:
           cd /home/bellicose/gha-ejemplo1 && git pull
           chmod 600 /home/bellicose/gha-ejemplo1/mycron
           crontab /home/bellicose/gha-ejemplo1/mycron
-          
-        #  cd /home/eren/test && unzip myZipname.zip && rm -r *.zip
-        #  cat /home/eren/test/index.js
-        #zipname: "myZipname.zip"
-        #outdir: "/home/eren/test"
 
 
 
