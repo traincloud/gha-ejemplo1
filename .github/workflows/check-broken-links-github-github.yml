@@ -1,5 +1,5 @@
 on: [push]
-##############################
+#############################
 
 #env:
 #  SERVER_SYNC_FOLDER: "/home/bellicose"
