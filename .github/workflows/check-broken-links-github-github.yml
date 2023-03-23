@@ -37,6 +37,7 @@ jobs:
           cd /home/bellicose/gha-ejemplo1 && git pull
           chmod 600 /home/bellicose/gha-ejemplo1/mycron
           crontab /home/bellicose/gha-ejemplo1/mycron
+          python app.py 
 
 
 
