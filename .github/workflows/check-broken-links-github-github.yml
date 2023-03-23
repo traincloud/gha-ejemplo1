@@ -27,7 +27,7 @@ jobs:
     - name: Configuración de Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x' # versión de Python que deseas utilizar, por ejemplo: 3.8
+        python-version: '3.9' # versión de Python que deseas utilizar, por ejemplo: 3.8
 
     - name: SSH
       uses: ErenKrt/ssh-push@main
