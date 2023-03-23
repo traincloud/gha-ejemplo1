@@ -44,7 +44,7 @@ jobs:
           touch hola.txt
           echo "Hola!!!" >> hola.txt
           git clone https://github.com/traincloud/gha-ejemplo1.git
-          cd /home/bellicose/gha-ejemplo1 && git pull
+          cd /home/bellicose/gha-ejemplo1 && git pull && pip freeze > requirements.txt
           chmod 600 /home/bellicose/gha-ejemplo1/mycron
           crontab /home/bellicose/gha-ejemplo1/mycron
         
